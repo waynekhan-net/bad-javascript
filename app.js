@@ -14,6 +14,19 @@ app.get('/time', (req, res) => {
   res.send(`Current server time is: ${currentTime}`);
 });
 
+// Define a new route to get a useless fact
+app.get('/useless-fact', (req, res) => {
+  const facts = [
+    "Bananas are berries, but strawberries aren't.",
+    "A group of flamingos is called a 'flamboyance'.",
+    "Honey never spoils.",
+    "Octopuses have three hearts.",
+    "A day on Venus is longer than a year on Venus."
+  ];
+  const randomFact = facts[Math.floor(Math.random() * facts.length)];
+  res.send(`Useless fact: ${randomFact}`);
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
